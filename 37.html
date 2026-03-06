@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 37: Musculoskeletal Trauma – NCLEX Review</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(145deg, #c0c9d3, #9aa9b8);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background: #eef2f5;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 0 40px rgba(0,0,0,0.2);
+        }
+        
+        .header {
+            background: linear-gradient(145deg, #3f5765, #1f3a4b);
+            color: white;
+            padding: 20px 30px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 85px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border-bottom: 4px solid #0a1f2c;
+        }
+        
+        .header-content {
+            flex: 1;
+        }
+        
+        .header h1 {
+            font-size: 1.7rem;
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+        
+        .counter {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            min-width: 100px;
+            text-align: center;
+            white-space: nowrap;
+            margin-left: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: #d1dbe3;
+            flex-shrink: 0;
+            position: relative;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #57758a, #1f3a4b);
+            height: 100%;
+            width: 0%;
+            transition: width 0.4s ease;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 30px;
+            background: #e6ecf2;
+        }
+        
+        .question-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 3px solid #b0c1d1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        
+        .question-header {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .question-number {
+            background: linear-gradient(145deg, #3f5765, #1f3a4b);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 6px 20px rgba(31,58,75,0.4);
+        }
+        
+        .question-text {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: #1e2f3b;
+            flex-grow: 1;
+            font-weight: 600;
+            padding-right: 15px;
+        }
+        
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .option {
+            padding: 20px;
+            border: 3px solid #cfc0e3;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.15rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #b0c1d1;
+        }
+        
+        .option:hover {
+            background: #dbe5ed;
+            border-color: #5e7c93;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(94,124,147,0.15);
+        }
+        
+        .option-letter {
+            background: linear-gradient(145deg, #3f5765, #1f3a4b);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            border: 3px solid #0f2938;
+        }
+        
+        .option.correct {
+            background: linear-gradient(145deg, #66bb6a, #43a047);
+            border-color: #2e7d32;
+            color: white;
+        }
+        
+        .option.correct .option-letter {
+            background: #2e7d32;
+            color: white;
+            border-color: #1b5e20;
+        }
+        
+        .option.incorrect {
+            background: linear-gradient(145deg, #ef5350, #e53935);
+            border-color: #b71c1c;
+            color: white;
+        }
+        
+        .option.incorrect .option-letter {
+            background: #b71c1c;
+            color: white;
+            border-color: #8b0000;
+        }
+        
+        .feedback-area {
+            flex-shrink: 0;
+        }
+        
+        .feedback {
+            padding: 25px;
+            border-radius: 15px;
+            display: none;
+            align-items: center;
+            gap: 20px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            animation: slideIn 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .feedback.correct {
+            background: linear-gradient(145deg, #c8e6c9, #a5d6a7);
+            border: 3px solid #2e7d32;
+            color: #1b5e20;
+            display: flex;
+        }
+        
+        .feedback.incorrect {
+            background: linear-gradient(145deg, #ffcdd2, #ef9a9a);
+            border: 3px solid #b71c1c;
+            color: #710000;
+            display: flex;
+        }
+        
+        .feedback-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        .rationale {
+            background: linear-gradient(145deg, #f0f4f9, #e0e9f2);
+            border: 3px solid #5e7c93;
+            border-radius: 15px;
+            padding: 25px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .rationale.show {
+            display: block;
+        }
+        
+        .rationale h4 {
+            color: #1f3a4b;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .rationale p {
+            color: #1e2f3b;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: #cfc0e3;
+            border-top: 3px solid #bba8d7;
+            flex-shrink: 0;
+            height: 80px;
+            background: #d0dee8;
+            border-top: 3px solid #b0c1d1;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(145deg, #3f5765, #1f3a4b);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(31,58,75,0.4);
+            background: linear-gradient(145deg, #1f3a4b, #0a1f2c);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(145deg, #7f95aa, #5f768b);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(95,118,139,0.4);
+            background: linear-gradient(145deg, #5f768b, #40586b);
+        }
+        
+        .btn-cancel {
+            background: linear-gradient(145deg, #ef5350, #e53935);
+            color: white;
+            display: none;
+        }
+        
+        .btn-cancel:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(229,57,53,0.4);
+            background: linear-gradient(145deg, #e53935, #c62828);
+        }
+        
+        .btn-cancel.show {
+            display: flex;
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                height: 75px;
+                padding: 15px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .question-text {
+                font-size: 1.2rem;
+            }
+            
+            .option {
+                padding: 15px;
+                font-size: 1.05rem;
+                gap: 15px;
+            }
+            
+            .option-letter {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .question-area {
+                padding: 20px;
+            }
+            
+            .navigation {
+                padding: 15px 20px;
+                height: 70px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .nav-buttons {
+                gap: 10px;
+            }
+        }
+        
+        @media (max-height: 700px) {
+            .header {
+                height: 70px;
+                padding: 15px 20px;
+            }
+            
+            .question-area {
+                padding: 20px;
+            }
+            
+            .question-text {
+                font-size: 1.2rem;
+            }
+            
+            .option {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-content">
+            <h1>🩻 Chapter 37: Musculoskeletal Trauma</h1>
+            <div class="subtitle">40 NCLEX-style questions · fractures, traction, amputations</div>
+        </div>
+        <div class="counter" id="counter">1/40</div>
+    </div>
+    
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <div class="main-content">
+        <div class="question-area">
+            <div class="question-header">
+                <div class="question-number" id="questionNumber">1</div>
+                <div class="question-text" id="question"></div>
+            </div>
+            
+            <div class="options-container" id="options"></div>
+        </div>
+        
+        <div class="feedback-area">
+            <div class="feedback" id="feedback">
+                <div class="feedback-icon" id="feedbackIcon"></div>
+                <div id="feedbackText"></div>
+            </div>
+            <div class="rationale" id="rationale">
+                <h4>📘 RATIONALE:</h4>
+                <p id="rationaleText"></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <button class="btn btn-secondary" id="prevBtn" onclick="previousCard()">
+            ⬅️ Previous
+        </button>
+        <div class="nav-buttons">
+            <button class="btn btn-cancel" id="cancelBtn" onclick="cancelSelection()">
+                ❌ Cancel
+            </button>
+            <button class="btn btn-primary" id="nextBtn" onclick="nextCard()">
+                Next ➡️
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Chapter 37: Management of Patients with Musculoskeletal Trauma – exact 40 questions from document
+    const questions = [
+        {
+            id: 1,
+            question: "1. A nurse is caring for a client who has had a plaster arm cast applied. Immediately after application, the nurse should provide what teaching to the client?",
+            options: [
+                "A. The cast will feel cool to touch for the first 30 minutes.",
+                "B. The cast should be wrapped snuggly with a towel until the client gets home.",
+                "C. The cast should be supported on a board while drying.",
+                "D. The cast will only have full strength when dry."
+            ],
+            correct: 3, // D
+            rationale: "A cast requires approximately 24 to 72 hours to dry, and until dry, it does not have full strength. While drying, the cast should not be placed on a hard surface. The cast will exude heat while it dries and should not be wrapped. (PTS:1 REF:p.1167)"
+        },
+        {
+            id: 2,
+            question: "2. A client is admitted to the orthopedic unit in skeletal traction for a fractured proximal femur. Which explanation should the nurse give the client about skeletal traction?",
+            options: [
+                "A. 'Skeletal traction temporarily stabilizes the fracture before surgery.'",
+                "B. 'Weights are attached to the leg using a boot.'",
+                "C. 'Traction involves passing a pin through the bone.'",
+                "D. 'Light weights must be used with skeletal traction.'"
+            ],
+            correct: 2, // C
+            rationale: "In skeletal traction, a metal pin or wire is passed through the bone and traction is then applied using ropes and weights attached to the pins. Skin traction, not skeletal traction, stabilizes the fracture until surgery is performed and uses a boot or Velcro to attach the ropes and weights to the leg. Skeletal traction is used when greater weight (11 to 18 kg [25 to 40 lb]) is needed to achieve the therapeutic effect. (PTS:1 REF:p.1176)"
+        },
+        {
+            id: 3,
+            question: "3. A nurse is caring for a client who is postoperative day 1 following a total arthroplasty of the right hip. How should the nurse position the client?",
+            options: [
+                "A. Place a pillow between the legs.",
+                "B. Turn the client on the surgical side.",
+                "C. Avoid flexion of the right hip.",
+                "D. Keep the right hip adducted at all times."
+            ],
+            correct: 0, // A
+            rationale: "The hips should be kept in abduction by a pillow placed between the legs. When positioning the client in bed, the nurse should avoid placing the client on the operated hip. The right hip should not be flexed more than 90 degrees to avoid dislocation. The right hip should be maintained in an abducted position. (PTS:1 REF:p.1185)"
+        },
+        {
+            id: 4,
+            question: "4. A client was brought to the emergency department after a fall. The client is taken to the operating room to receive a right hip prosthesis. In the immediate postoperative period, what health education should the nurse emphasize?",
+            options: [
+                "A. 'Make sure you don't bring your knees close together.'",
+                "B. 'Try to lie as still as possible for the first few days.'",
+                "C. 'Try to avoid bending your knees until next week.'",
+                "D. 'Keep your legs higher than your chest whenever you can.'"
+            ],
+            correct: 0, // A
+            rationale: "After receiving a hip prosthesis, the affected leg should be kept abducted. Mobility should be encouraged within safe limits. There is no need to avoid knee flexion and the client's legs do not need to be higher than the level of the chest. (PTS:1 REF:p.1185)"
+        },
+        {
+            id: 5,
+            question: "5. A client with a total hip replacement has developed decreased breath sounds. What is the nurse's best action?",
+            options: [
+                "A. Place the client on bed rest.",
+                "B. Request an antitussive medication from the health care provider.",
+                "C. Encourage use of the incentive spirometer.",
+                "D. Assess for signs and symptoms of systemic infection."
+            ],
+            correct: 2, // C
+            rationale: "Atelectasis may occur in the client after surgery and can be prevented with the use of an incentive spirometer. Since bedrest increases the risk for atelectasis and pneumonia after surgery, the client should be encouraged to ambulate and sit up in a chair rather than lie in bed. Since the client should be encouraged to deep breath and cough, requesting an antitussive medication for the client would not be appropriate. Atelectasis is not a clinical manifestation of infection. (PTS:1 REF:p.1186)"
+        },
+        {
+            id: 6,
+            question: "6. A nurse is caring for a client who has a leg cast. The nurse observes the client using a pencil to scratch the skin under the edge of the cast. How should the nurse respond to this observation?",
+            options: [
+                "A. Allow the client to gently scratch inside the cast with a pencil.",
+                "B. Give the client a sterile tongue depressor to use for scratching instead of the pencil.",
+                "C. Provide a fan to blow cool air into the cast to relieve itching.",
+                "D. Obtain a prescription for a sedative, such as lorazepam, to prevent the client from scratching."
+            ],
+            correct: 2, // C
+            rationale: "The client may receive relief from itching by using a fan or hair dryer to blow cool air into the cast. Scratching should be discouraged using a pencil or a sterile tongue depressor because of the risk for skin breakdown or damage to the cast. Benzodiazepines would not be given for this purpose. (PTS:1 REF:p.1170)"
+        },
+        {
+            id: 7,
+            question: "7. The nurse educator on an orthopedic trauma unit is reviewing the safe and effective use of traction with some recent nursing graduates. What principle should the educator promote?",
+            options: [
+                "A. Knots in the rope should not be resting against pulleys.",
+                "B. Weights should rest against the bed rails.",
+                "C. The end of the limb in traction should be braced by the footboard of the bed.",
+                "D. Skeletal traction may be removed for brief periods to facilitate the client's independence."
+            ],
+            correct: 0, // A
+            rationale: "Knots in the rope should not rest against pulleys because this interferes with traction. Weights are used to apply the vector of force necessary to achieve effective traction and should hang freely at all times. To avoid interrupting traction, the limb in traction should not rest against anything. Skeletal traction is never interrupted. (PTS:1 REF:p.1174)"
+        },
+        {
+            id: 8,
+            question: "8. The nursing care plan for a client in traction specifies regular assessments for venous thromboembolism (VTE). When assessing a client's lower limbs, what sign or symptom is suggestive of deep vein thrombosis (DVT)?",
+            options: [
+                "A. Increased warmth of the calf",
+                "B. Decreased circumference of the calf",
+                "C. Loss of sensation to the calf",
+                "D. Pale-appearing calf"
+            ],
+            correct: 0, // A
+            rationale: "Signs of DVT include increased warmth, redness, swelling, and calf tenderness. These findings are promptly reported to the health care provider for definitive evaluation and therapy. Signs and symptoms of a DVT do not include a decreased circumference of the calf, a loss of sensation in the calf, or a pale-appearing calf. (PTS:1 REF:p.1175)"
+        },
+        {
+            id: 9,
+            question: "9. A client with a right tibial fracture is being discharged home after having a cast applied. What instruction should the nurse provide in relationship to the client's cast care?",
+            options: [
+                "A. 'Cover the cast with a blanket until the cast dries.'",
+                "B. 'Keep your right leg elevated above heart level.'",
+                "C. 'Use a clean object to scratch itches inside the cast.'",
+                "D. 'A foul smell from the cast is normal after the first few days.'"
+            ],
+            correct: 1, // B
+            rationale: "The leg should be elevated to promote venous return and prevent edema. The cast shouldn't be covered while drying because this will cause heat buildup and prevent air circulation. No foreign object should be inserted inside the cast because of the risk of cutting the skin and causing an infection. A foul smell from a cast is never normal and may indicate an infection. (PTS:1 REF:p.1168)"
+        },
+        {
+            id: 10,
+            question: "10. A nurse is caring for a client who has had a total hip replacement. The nurse is reviewing health education prior to discharge. Which of the client's statements would indicate to the nurse that the client requires further teaching?",
+            options: [
+                "A. 'I'll need to keep several pillows between my legs at night.'",
+                "B. 'I need to remember not to cross my legs. It's such a habit.'",
+                "C. 'The occupational therapist is showing me how to use a 'sock puller' to help me get dressed.'",
+                "D. 'I will need my husband to assist me in getting off the low toilet seat at home.'"
+            ],
+            correct: 3, // D
+            rationale: "To prevent hip dislocation after a total hip replacement, the client must avoid bending the hips beyond 90 degrees. Assistive devices, such as a raised toilet seat, should be used to prevent severe hip flexion. Using an abduction pillow or placing several pillows between the legs reduces the risk of hip dislocation by preventing adduction and internal rotation of the legs. Likewise, teaching the client to avoid crossing the legs also reduces the risk of hip dislocation. A sock puller helps a client get dressed without flexing the hips beyond 90 degrees. (PTS:1 REF:p.1186)"
+        },
+        {
+            id: 11,
+            question: "11. A client has suffered a muscle strain and is reporting pain at 6 on a 10-point scale. The nurse should recommend what action?",
+            options: [
+                "A. Taking an opioid analgesic as prescribed",
+                "B. Applying a cold pack to the injured site",
+                "C. Performing passive ROM exercises",
+                "D. Applying a heating pad to the affected muscle"
+            ],
+            correct: 1, // B
+            rationale: "Most pain can be relieved by elevating the involved part, applying cold packs, and administering analgesics as prescribed. Heat may exacerbate the pain by increasing blood circulation, and ROM exercises would likely be painful. Analgesia is likely necessary, but NSAIDs would be more appropriate than opioids. (PTS:1 REF:p.1153)"
+        },
+        {
+            id: 12,
+            question: "12. A nurse is assessing the neurovascular status of a client who has had a leg cast recently applied. The nurse is unable to palpate the client's dorsalis pedis or posterior tibial pulse and the client's foot is pale. What is the nurse's most appropriate action?",
+            options: [
+                "A. Warm the client's foot and determine whether circulation improves.",
+                "B. Reposition the client with the affected foot dependent.",
+                "C. Reassess the client's neurovascular status in 15 minutes.",
+                "D. Promptly inform the primary care provider."
+            ],
+            correct: 3, // D
+            rationale: "Signs of neurovascular dysfunction warrant immediate medical follow-up. It would be unsafe to delay. Warming the foot or repositioning the client may be of some benefit, but the care provider should be informed first. (PTS:1 REF:p.1190)"
+        },
+        {
+            id: 13,
+            question: "13. A client has just begun been receiving skeletal traction and the nurse is aware that muscles in the client's affected limb are spastic. How does this change in muscle tone affect the client's traction prescription?",
+            options: [
+                "A. Traction must temporarily be aligned in a slightly different direction.",
+                "B. Extra weight is needed initially to keep the limb in proper alignment.",
+                "C. A lighter weight should be initially used.",
+                "D. Weight will temporarily alternate between heavier and lighter weights."
+            ],
+            correct: 1, // B
+            rationale: "The traction weights applied initially must overcome the shortening spasms of the affected muscles. As the muscles relax, the traction weight is reduced to prevent fracture dislocation and to promote healing. Weights never alternate between heavy and light. (PTS:1 REF:p.1176)"
+        },
+        {
+            id: 14,
+            question: "14. A nurse is caring for a client receiving skeletal traction. Due to the client's severe limits on mobility, the nurse has identified a risk for atelectasis or pneumonia. What intervention should the nurse provide in order to prevent these complications?",
+            options: [
+                "A. Perform chest physiotherapy once per shift and as needed.",
+                "B. Teach the client to perform deep breathing and coughing exercises.",
+                "C. Administer prophylactic antibiotics as prescribed.",
+                "D. Administer nebulized bronchodilators and corticosteroids as prescribed."
+            ],
+            correct: 1, // B
+            rationale: "To prevent these complications, the nurse should educate the client about performing deep-breathing and coughing exercises to aid in fully expanding the lungs and clearing pulmonary secretions. Antibiotics, bronchodilators, and steroids are not used on a preventative basis, and chest physiotherapy is unnecessary and implausible for a client in traction. (PTS:1 REF:p.1178)"
+        },
+        {
+            id: 15,
+            question: "15. A client who had a total hip replacement two days ago reports new onset calf tenderness to the nurse. Which action should the nurse take?",
+            options: [
+                "A. Administer pain medication.",
+                "B. Massage the client's calf.",
+                "C. Apply antiembolic stockings.",
+                "D. Notify the health care provider."
+            ],
+            correct: 3, // D
+            rationale: "Since calf tenderness may be a sign of deep vein thrombosis (DVT), the nurse should notify the health care provider about this finding. The nurse should not administer pain medication since it is prescribed for surgical pain and this tenderness in the calf should not be masked until it is evaluated. The nurse should not massage the client's calf as this may dislodge a thrombus. Antiembolic stockings should be worn prophylactically to prevent DVT but are not applied to treat DVT. (PTS:1 REF:p.1178)"
+        },
+        {
+            id: 16,
+            question: "16. A nurse is assessing a client who is receiving traction. The nurse's assessment confirms that the client is able to perform plantar flexion. What conclusion can the nurse draw from this finding?",
+            options: [
+                "A. The leg that was assessed is free from DVT.",
+                "B. The client's tibial nerve is functional.",
+                "C. Circulation to the distal extremity is adequate.",
+                "D. The client does not have peripheral neurovascular dysfunction."
+            ],
+            correct: 1, // B
+            rationale: "Plantar flexion demonstrates function of the tibial nerve. It does not demonstrate the absence of DVT and does not allow the nurse to ascertain adequate circulation. The nurse must perform more assessments on more sites in order to determine an absence of peripheral neurovascular dysfunction. (PTS:1 REF:p.1175)"
+        },
+        {
+            id: 17,
+            question: "17. A nurse is caring for an older adult client who is preparing for discharge following recovery from a total hip replacement. What outcome must be met prior to discharge?",
+            options: [
+                "A. Client is able to perform ADLs independently.",
+                "B. Client is able to perform transfers safely.",
+                "C. Client is able to weight-bear equally on both legs.",
+                "D. Client is able to demonstrate full ROM of the affected hip."
+            ],
+            correct: 1, // B
+            rationale: "The client must be able to perform transfers and to use mobility aids safely. Each of the other listed goals is unrealistic for the client who has undergone recent hip replacement. (PTS:1 REF:p.1185)"
+        },
+        {
+            id: 18,
+            question: "18. A client has recently been admitted to the orthopedic unit following total hip arthroplasty. The nurse assesses that the indwelling urinary catheter was removed one hour ago in the post-anesthesia care unit and that the client has not yet voided. Which action should the nurse take?",
+            options: [
+                "A. Inform the primary provider promptly.",
+                "B. Ask if the client needs to void.",
+                "C. Perform intermittent catheterization.",
+                "D. Obtain an order to reinsert the indwelling urinary catheter."
+            ],
+            correct: 1, // B
+            rationale: "Since the indwelling urinary catheter was removed one hour earlier, the client would be expected to void within the next five hours (six hours after removal of the catheter). The nurse should ask the client if there is an urge to void. If the client does not feel the urge to void, the nurse should check periodically over the next 5 hours. Since not voiding within one hour of catheter removal is within normal, the nurse does not need to inform the health care provider, perform intermittent catheterization, or obtain an order to insert an indwelling catheter. (PTS:1 REF:p.1186)"
+        },
+        {
+            id: 19,
+            question: "19. A 91-year-old client is slated for orthopedic surgery and the nurse is integrating gerontologic considerations into the client's plan of care. What intervention is most justified in the care of this client?",
+            options: [
+                "A. Administration of prophylactic antibiotics",
+                "B. Total parenteral nutrition (TPN)",
+                "C. Use of a pressure-relieving mattress",
+                "D. Use of a Foley catheter until discharge"
+            ],
+            correct: 2, // C
+            rationale: "Older adults have a heightened risk of skin breakdown; use of a pressure-reducing mattress addresses this risk. Older adults do not necessarily need TPN and the Foley catheter should be discontinued as soon as possible to prevent urinary tract infections. Prophylactic antibiotics are not a standard infection prevention measure. (PTS:1 REF:p.1175)"
+        },
+        {
+            id: 20,
+            question: "20. The nurse is teaching the client on bed rest to perform quadriceps setting exercises. Which instruction should the nurse give the client?",
+            options: [
+                "A. 'Push the knees into the mattress.'",
+                "B. 'Lie prone in bed.'",
+                "C. 'Contract the buttock muscles.'",
+                "D. 'Bend the knees.'"
+            ],
+            correct: 0, // A
+            rationale: "To perform quadriceps setting exercises, the client lies in the supine (face up) position with legs extended, and pushes the knees into the bed while contracting the anterior thigh muscles. The client does not lie prone (face down), contract the buttocks, or bend the knees. (PTS:1 REF:p.1187)"
+        },
+        {
+            id: 21,
+            question: "21. A nurse admits a client who has a fracture of the nose that has resulted in a skin tear and involvement of the mucous membranes of the nasal passages. The orthopedic nurse should plan to care for what type of fracture?",
+            options: [
+                "A. Compression",
+                "B. Compound",
+                "C. Impacted",
+                "D. Transverse"
+            ],
+            correct: 1, // B
+            rationale: "A compound fracture involves damage to the skin or mucous membranes and is also called an open fracture. A compression fracture involves compression of bone and is seen in vertebral fractures. An impacted fracture occurs when a bone fragment is driven into another bone fragment. A transverse fracture occurs straight across the bone shaft. (PTS:1 REF:p.1157)"
+        },
+        {
+            id: 22,
+            question: "22. A nurse's assessment of a client's knee reveals edema, tenderness, muscle spasms, and ecchymosis. The client states that 2 days ago the client ran in a long-distance race and now it 'really hurts to stand up.' The nurse should plan care based on the belief that the client has experienced what injury?",
+            options: [
+                "A. A first-degree strain",
+                "B. A second-degree strain",
+                "C. A first-degree sprain",
+                "D. A second-degree sprain"
+            ],
+            correct: 1, // B
+            rationale: "A second-degree strain involves tearing of muscle fibers and is manifested by notable loss of load-bearing strength with accompanying edema, tenderness, muscle spasm, and ecchymosis. A first-degree strain reflects tearing of a few muscle fibers and is accompanied by minor edema, tenderness, and mild muscle spasm, without noticeable loss of function. However, this client states a loss of function. A sprain normally involves twisting, which is inconsistent with the client's overuse injury. (PTS:1 REF:p.1153)"
+        },
+        {
+            id: 23,
+            question: "23. A nurse is writing a care plan for a client admitted to the emergency department (ED) with an open fracture. The nurse will assign priority to what nursing diagnosis for a client with an open fracture of the radius?",
+            options: [
+                "A. Risk for infection",
+                "B. Risk for ineffective role performance",
+                "C. Risk for perioperative positioning injury",
+                "D. Risk for powerlessness"
+            ],
+            correct: 0, // A
+            rationale: "The client has a significant risk for osteomyelitis and tetanus due to the fact that the fracture is open. Powerlessness and ineffective role performance are psychosocial diagnoses that may or may not apply, and which would be superseded by immediate physiologic threats such as infection. Surgical positioning injury is not plausible, since surgery is not likely indicated. (PTS:1 REF:p.1164)"
+        },
+        {
+            id: 24,
+            question: "24. A nurse is caring for a client who has suffered an unstable thoracolumbar fracture. What goal should the nurse prioritize during nursing care?",
+            options: [
+                "A. Preventing skin breakdown",
+                "B. Maintaining spinal alignment",
+                "C. Maximizing function",
+                "D. Preventing increased intracranial pressure"
+            ],
+            correct: 1, // B
+            rationale: "Clients with an unstable fracture must have their spine in alignment at all times in order to prevent neurologic damage. This is a greater threat, and higher priority, than promoting function and preventing skin breakdown, even though these are both valid considerations. Increased ICP is not a high risk. (PTS:1 REF:p.1193)"
+        },
+        {
+            id: 25,
+            question: "25. A client with a simple arm fracture is receiving discharge education from the nurse. What would the nurse instruct the client to do?",
+            options: [
+                "A. Elevate the affected extremity to shoulder level when at rest.",
+                "B. Engage in exercises that strengthen the unaffected muscles.",
+                "C. Apply topical anesthetics to accessible skin surfaces as needed.",
+                "D. Avoid using analgesics so that further damage is not masked."
+            ],
+            correct: 1, // B
+            rationale: "The nurse will encourage the client to engage in exercises that strengthen the unaffected muscles. Comfort measures may include appropriate use of analgesics and elevation of the affected extremity to the heart level. Topical anesthetics are not typically used. (PTS:1 REF:p.1160)"
+        },
+        {
+            id: 26,
+            question: "26. A nurse is caring for a client who had a right below-the-knee amputation (BKA). The nurse recognizes the importance of implementing measures that focus on preventing flexion contracture of the hip and maintaining proper positioning. What nursing action will best achieve these goals?",
+            options: [
+                "A. Encouraging the client to turn from side to side and to assume a prone position",
+                "B. Initiating ROM exercises of the hip and knee 10 to 12 weeks after the amputation",
+                "C. Minimizing movement of the flexor muscles of the hip",
+                "D. Encouraging the client to sit in a chair for at least 8 hours a day"
+            ],
+            correct: 0, // A
+            rationale: "The nurse encourages the client to turn from side to side and to assume a prone position, if possible, to stretch the flexor muscles and to prevent flexion contracture of the hip. Postoperative ROM exercises are started early because contracture deformities develop rapidly. ROM exercises include hip and knee exercises for clients with BKAs. The nurse also discourages sitting for prolonged periods of time. (PTS:1 REF:p.1197)"
+        },
+        {
+            id: 27,
+            question: "27. The orthopedic nurse should assess for signs and symptoms of Volkmann contracture if a client has fractured which of the following bones?",
+            options: [
+                "A. Femur",
+                "B. Humerus",
+                "C. Radial head",
+                "D. Clavicle"
+            ],
+            correct: 1, // B
+            rationale: "The most serious complication of a supracondylar fracture of the humerus is Volkmann ischemic contracture, which results from antecubital swelling or damage to the brachial artery. This complication is specific to humeral fractures. (PTS:1 REF:p.1180)"
+        },
+        {
+            id: 28,
+            question: "28. A school nurse is assessing a student who was kicked in the shin during a soccer game. The area of the injury has become swollen and discolored. The triage nurse should organize care for a:",
+            options: [
+                "A. sprain.",
+                "B. strain.",
+                "C. contusion.",
+                "D. dislocation."
+            ],
+            correct: 2, // C
+            rationale: "A contusion is a soft tissue injury that results in bleeding into soft tissues, creating a hematoma and ecchymosis. A sprain is an injury to ligaments caused by wrenching or twisting. A strain is a 'muscle pull' from overuse, overstretching, or excessive stress. A dislocation is a condition in which the articular surfaces of the bones forming a joint are no longer in anatomic contact. Because the injury is not at the site of a joint, the client has not experienced a sprain, strain, or dislocation. (PTS:1 REF:p.1153)"
+        },
+        {
+            id: 29,
+            question: "29. Radiographs of a client's upper arm shows three fragments of the humeral bone. This diagnostic result suggests what type of fracture?",
+            options: [
+                "A. Open",
+                "B. Comminuted",
+                "C. Intra-articular",
+                "D. Greenstick"
+            ],
+            correct: 1, // B
+            rationale: "A comminuted fracture has more than two bone fragments. An open fracture has a bone end which breaks through the skin surface. An intra-articular fracture extends into the joint surface of a bone. A greenstick fracture refers to a partial break of a bone. (PTS:1 REF:p.1157)"
+        },
+        {
+            id: 30,
+            question: "30. What nursing intervention should the nurse prioritize to facilitate healing in a client who has suffered a hip fracture?",
+            options: [
+                "A. Administer analgesics as required.",
+                "B. Place a pillow between the client's legs when turning.",
+                "C. Maintain prone positioning at all times.",
+                "D. Encourage internal and external rotation of the affected leg."
+            ],
+            correct: 1, // B
+            rationale: "Placing a pillow between the client's legs when turning prevents adduction and supports the client's legs. Administering analgesics addresses pain but does not directly protect bone remodeling and promote healing. Rotation of the affected leg can cause dislocation and must be avoided. Prone positioning does not need to be maintained at all times. (PTS:1 REF:p.1185)"
+        },
+        {
+            id: 31,
+            question: "31. A client is brought to the emergency department by ambulance after stepping in a hole and falling. While assessing the client the nurse notes that the client's right leg is shorter than the left leg; the right hip is noticeably deformed and the client is in acute pain. Imaging does not reveal a fracture. What is the most plausible explanation for this client's signs and symptoms?",
+            options: [
+                "A. Subluxated right hip",
+                "B. Right hip contusion",
+                "C. Hip strain",
+                "D. Traumatic hip dislocation"
+            ],
+            correct: 3, // D
+            rationale: "Signs and symptoms of a traumatic dislocation include acute pain, change in positioning of the joint, shortening of the extremity, deformity, and decreased mobility. A subluxation would cause moderate deformity, or possibly no deformity. A contusion or strain would not cause obvious deformities. (PTS:1 REF:p.1154)"
+        },
+        {
+            id: 32,
+            question: "32. The surgical nurse is admitting a client from postanesthetic recovery following the client's below-the-knee amputation. The nurse recognizes the client's high risk for postoperative hemorrhage and should keep what equipment at the bedside?",
+            options: [
+                "A. A tourniquet",
+                "B. A syringe preloaded with vitamin K",
+                "C. A unit of packed red blood cells, placed on ice",
+                "D. A dose of protamine sulfate"
+            ],
+            correct: 0, // A
+            rationale: "Immediate postoperative bleeding may develop slowly or may take the form of massive hemorrhage resulting from a loosened suture. A large tourniquet should be in plain sight at the client's bedside so that, if severe bleeding occurs, it can be applied to the residual limb to control the hemorrhage. PRBCs cannot be kept at the bedside. Vitamin K and protamine sulfate are antidotes to warfarin and heparin, but are not given to treat active postsurgical bleeding. (PTS:1 REF:p.1200)"
+        },
+        {
+            id: 33,
+            question: "33. A client has presented to the emergency department with an injury to the wrist. The client is diagnosed with a third-degree strain. Why would the health care provider prescribe an x-ray of the wrist?",
+            options: [
+                "A. Nerve damage is associated with third-degree strains.",
+                "B. Compartment syndrome is associated with third-degree strains.",
+                "C. Avulsion fractures are associated with third-degree strains.",
+                "D. Greenstick fractures are associated with third-degree strains."
+            ],
+            correct: 2, // C
+            rationale: "An x-ray should be obtained to rule out bone injury because an avulsion fracture (in which a bone fragment is pulled away from the bone by a tendon) may be associated with a third-degree strain. Nerve damage, compartment syndrome, and greenstick fractures are not associated with third-degree strains. (PTS:1 REF:p.1153)"
+        },
+        {
+            id: 34,
+            question: "34. A client is involved in a motorcycle accident and injures an arm. The health care provider diagnoses the man with an intra-articular fracture and splints the injury. The nurse implements the teaching plan developed for this client. What sequela of intra-articular fractures should the nurse describe regarding this client?",
+            options: [
+                "A. Posttraumatic arthritis",
+                "B. Fat embolism syndrome (FES)",
+                "C. Osteomyelitis",
+                "D. Compartment syndrome"
+            ],
+            correct: 0, // A
+            rationale: "Intra-articular fractures often lead to posttraumatic arthritis. Research does not indicate a correlation between intra-articular fractures and FES, osteomyelitis, or compartment syndrome. (PTS:1 REF:p.1159)"
+        },
+        {
+            id: 35,
+            question: "35. A client is admitted to the orthopedic unit with a fractured femur after a motorcycle accident. The client has been placed in traction until the femur can be rodded in surgery. For what early complication(s) should the nurse monitor this client? Select all that apply.",
+            options: [
+                "A. Systemic infection",
+                "B. Complex regional pain syndrome",
+                "C. Deep vein thrombosis",
+                "D. Compartment syndrome",
+                "E. Fat embolism"
+            ],
+            correct: [2,3,4], // C, D, E
+            rationale: "Early complications include shock, fat embolism, compartment syndrome, and venous thromboemboli (deep vein thrombosis [DVT], pulmonary embolism [PE]). Infection and complex regional pain syndrome are later complications of fractures. (PTS:1 REF:p.1161)"
+        },
+        {
+            id: 36,
+            question: "36. An older adult client has fallen in the home and is brought to the emergency department by ambulance with a suspected fractured hip. X-rays confirm a fracture of the left femoral neck. When planning assessments during the client's presurgical care, the nurse should be aware of the client's heightened risk of what complication?",
+            options: [
+                "A. Osteomyelitis",
+                "B. Avascular necrosis",
+                "C. Phantom pain",
+                "D. Septicemia"
+            ],
+            correct: 1, // B
+            rationale: "Fractures of the neck of the femur may damage the vascular system that supplies blood to the head and the neck of the femur, and the bone may become ischemic. For this reason, AVN is common in clients with femoral neck fractures. Infections are not immediate complications and phantom pain applies to clients with amputations, not hip fractures. (PTS:1 REF:p.1165)"
+        },
+        {
+            id: 37,
+            question: "37. A client who has had an amputation is being cared for by a multidisciplinary rehabilitation team. What is the primary goal of this multidisciplinary team?",
+            options: [
+                "A. Maximize the efficiency of care.",
+                "B. Ensure that the client's health care is holistic.",
+                "C. Facilitate the client's adjustment to a new body image.",
+                "D. Promote the client's highest possible level of function."
+            ],
+            correct: 3, // D
+            rationale: "The multidisciplinary rehabilitation team helps the client achieve the highest possible level of function and participation in life activities. The team is not primarily motivated by efficiency, the need for holistic care, or the need to foster the client's body image, despite the fact that each of these are valid goals. (PTS:1 REF:p.1196)"
+        },
+        {
+            id: 38,
+            question: "38. The nurse is providing care for a client who has had a below-the-knee amputation. The nurse enters the client's room and finds the client resting in bed with the residual limb supported on a pillow. What is the nurse's most appropriate action?",
+            options: [
+                "A. Inform the surgeon of this finding.",
+                "B. Explain the risks of flexion contracture to the client.",
+                "C. Transfer the client to a sitting position.",
+                "D. Encourage the client to perform active ROM exercises with the residual limb."
+            ],
+            correct: 1, // B
+            rationale: "The residual limb should not be placed on a pillow because a flexion contracture of the hip may result. There is no acute need to contact the client's surgeon. Encouraging exercise or transferring the client does not address the risk of flexion contracture. (PTS:1 REF:p.1199)"
+        },
+        {
+            id: 39,
+            question: "39. A nurse in a busy emergency department provides care for many clients who present with contusions, strains, or sprains. What are treatment modalities that are common to all of these musculoskeletal injuries? Select all that apply.",
+            options: [
+                "A. Massage",
+                "B. Applying ice",
+                "C. Compression dressings",
+                "D. Resting the affected extremity",
+                "E. Corticosteroids",
+                "F. Elevating the injured limb"
+            ],
+            correct: [1,2,3,5], // B, C, D, F
+            rationale: "Treatment of contusions, strains, and sprains consists of resting and elevating the affected part, applying cold, and using a compression bandage. Massage and corticosteroids are not used to treat these injuries. (PTS:1 REF:p.1153)"
+        },
+        {
+            id: 40,
+            question: "40. A client was fitted with an arm cast after fracturing the humerus. Twelve hours after the application of the cast, the client tells the nurse that the injured arm hurts. Analgesics do not relieve the pain. What would be the most appropriate nursing action?",
+            options: [
+                "A. Prepare the client for opening or bivalving of the cast.",
+                "B. Obtain a prescription for a different analgesic.",
+                "C. Encourage the client to wiggle and move the fingers.",
+                "D. Petal the edges of the client's cast."
+            ],
+            correct: 0, // A
+            rationale: "Acute compartment syndrome involves a sudden and severe decrease in blood flow to the tissues distal to an area of injury that results in ischemic necrosis if prompt, decisive intervention does not occur. Removing or bivalving the cast is necessary to relieve pressure. Prescribing different analgesics does not address the underlying problem. Encouraging the client to move the fingers or perform range-of-motion exercises will not treat or prevent compartment syndrome. Petaling the edges of a cast with tape prevents abrasions and skin breakdown, not compartment syndrome. (PTS:1 REF:p.1164)"
+        }
+    ];
+
+    let currentQuestion = 0;
+    let selectedOption = null;
+    let answers = Array(questions.length).fill(null);
+
+    function loadQuestion() {
+        const q = questions[currentQuestion];
+        if (!q) return;
+
+        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        document.getElementById('progressBar').style.width = `${progress}%`;
+        document.getElementById('counter').textContent = `${currentQuestion + 1}/${questions.length}`;
+        document.getElementById('questionNumber').textContent = q.id;
+
+        document.getElementById('question').innerHTML = q.question;
+        loadOptions(q);
+
+        document.getElementById('feedback').style.display = 'none';
+        document.getElementById('rationale').classList.remove('show');
+        document.getElementById('cancelBtn').classList.remove('show');
+
+        document.getElementById('prevBtn').disabled = currentQuestion === 0;
+        const stored = answers[q.id - 1];
+        document.getElementById('nextBtn').disabled = stored === null || stored === undefined;
+        document.getElementById('nextBtn').textContent = currentQuestion >= questions.length - 1 ? 'Finish ➡️' : 'Next ➡️';
+    }
+
+    function loadOptions(q) {
+        const container = document.getElementById('options');
+        container.innerHTML = '';
+        q.options.forEach((opt, idx) => {
+            const div = document.createElement('div');
+            div.className = 'option';
+            div.innerHTML = `<div class="option-letter">${String.fromCharCode(65 + idx)}</div><div>${opt}</div>`;
+            div.onclick = () => selectOption(idx);
+            container.appendChild(div);
+        });
+
+        const saved = answers[q.id - 1];
+        if (saved !== null && saved !== undefined) {
+            selectOption(saved, true);
+        }
+    }
+
+    function selectOption(index, fromMemory = false) {
+        const q = questions[currentQuestion];
+        if (!fromMemory && selectedOption !== null) return;
+
+        if (!fromMemory) {
+            selectedOption = index;
+            answers[q.id - 1] = index;
+        }
+
+        highlightSelected(index, q);
+        showFeedback(index, q);
+        document.getElementById('nextBtn').disabled = false;
+        document.getElementById('cancelBtn').classList.add('show');
+    }
+
+    function highlightSelected(index, q) {
+        const opts = document.querySelectorAll('.option');
+        opts.forEach((opt, i) => opt.classList.remove('correct', 'incorrect'));
+
+        const correctIndices = Array.isArray(q.correct) ? q.correct : [q.correct];
+        if (Array.isArray(q.correct)) {
+            correctIndices.forEach(ci => opts[ci]?.classList.add('correct'));
+            if (!correctIndices.includes(index)) {
+                opts[index]?.classList.add('incorrect');
+            }
+        } else {
+            if (index === q.correct) {
+                opts[index].classList.add('correct');
+            } else {
+                opts[index].classList.add('incorrect');
+                opts[q.correct].classList.add('correct');
+            }
+        }
+    }
+
+    function showFeedback(index, q) {
+        const fb = document.getElementById('feedback');
+        const icon = document.getElementById('feedbackIcon');
+        const text = document.getElementById('feedbackText');
+        const rationaleDiv = document.getElementById('rationale');
+        const rationaleP = document.getElementById('rationaleText');
+
+        const correctIndices = Array.isArray(q.correct) ? q.correct : [q.correct];
+        const isCorrect = correctIndices.includes(index);
+
+        if (isCorrect) {
+            fb.className = 'feedback correct';
+            icon.textContent = '✅';
+            text.textContent = 'CORRECT! Well done.';
+        } else {
+            fb.className = 'feedback incorrect';
+            icon.textContent = '❌';
+            const letters = correctIndices.map(c => String.fromCharCode(65 + c)).join(', ');
+            text.textContent = `INCORRECT. The correct answer(s): ${letters}`;
+        }
+
+        fb.style.display = 'flex';
+        rationaleP.innerHTML = q.rationale;
+        rationaleDiv.classList.add('show');
+    }
+
+    function cancelSelection() {
+        const q = questions[currentQuestion];
+        selectedOption = null;
+        answers[q.id - 1] = null;
+        document.querySelectorAll('.option').forEach(opt => opt.classList.remove('correct', 'incorrect'));
+        document.getElementById('feedback').style.display = 'none';
+        document.getElementById('rationale').classList.remove('show');
+        document.getElementById('cancelBtn').classList.remove('show');
+        document.getElementById('nextBtn').disabled = true;
+    }
+
+    function nextCard() {
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            selectedOption = null;
+            loadQuestion();
+        } else {
+            currentQuestion = 0;
+            loadQuestion();
+        }
+    }
+
+    function previousCard() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            const q = questions[currentQuestion];
+            selectedOption = answers[q.id - 1];
+            loadQuestion();
+        }
+    }
+
+    // keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        if (e.key >= '1' && e.key <= '4') selectOption(parseInt(e.key)-1);
+        else if (e.key >= 'a' && e.key <= 'd') selectOption(e.key.charCodeAt(0)-97);
+        else if (e.key >= 'A' && e.key <= 'D') selectOption(e.key.charCodeAt(0)-65);
+        else if (e.key === 'ArrowLeft' && !document.getElementById('prevBtn').disabled) previousCard();
+        else if (e.key === 'ArrowRight' && !document.getElementById('nextBtn').disabled) nextCard();
+        else if (e.key === 'Escape' && document.getElementById('cancelBtn').classList.contains('show')) cancelSelection();
+    });
+
+    loadQuestion();
+</script>
+</body>
+</html>
